@@ -37,8 +37,8 @@ def elk_delete(es_ip,delete_day):
             #与现在相差天数
             delta = (date_now - index_date).days
             if delta > delete_day:
-                index_delete = 'http://%s:9200/%s/_close' % (es_ip,index)
-                os.popen("curl -XPOST %s" % (index_de))
+                index_delete = 'http://%s:9200/%s' % (es_ip,index)
+                os.popen("curl -XDELETE %s" % (index_delete))
 
 
 elk_close(es_ip,close_day)
